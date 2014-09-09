@@ -17,7 +17,7 @@ About a year ago, I had the pleasure of playing with a dataset of whisky flavor 
 
 In this post, I revisit the question of whether whisky flavor profiles differ by distillery region with an exploratory analysis of text reviews and data from [whiskybase.com](http://www.whiskybase.com/). I scraped the reviews of some 26,000 bottlings of whiskies and visualized the words used to describe whisky by region.
 
-![WordClouds by Dsitillery]({{lubagloukhov.github.com}}/assets/byDist_Large.jpg)
+![WordClouds by Dsitillery]({{lubagloukhov.github.com}}/assets/byDist.jpg)
 [https://github.com/lubagloukhov/whiskies2](https://github.com/lubagloukhov/whiskies2)
 
 In scraping for reviews and background information,  I used Python (BeautifulSoup and urllib) to get the html code and extract text from within the html tags. I created a compilation of reviews, ratings and background in the form of a csv. Once I had the data & reviews in a csv, I used R (tm, openNLP and wordcloud) to visualize the most frequently occurring words in reviews of whiskys by distillery region (visualization shown), by age, by cask type, etc. tm was used to slightly clean & then split the data into words, counting the number of occurrences of each word. openNLP was used to identify nouns and adjectives, this helped to focus on descriptive words of the English language. 
