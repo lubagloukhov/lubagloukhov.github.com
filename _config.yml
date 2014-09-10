@@ -82,7 +82,7 @@ JB :
   comments :
     provider : disqus
     disqus : 
-      short_name : lubagloukhov@gmail.com
+      short_name : lubagloukhov
     livefyre :
       site_id : 123
     intensedebate :
