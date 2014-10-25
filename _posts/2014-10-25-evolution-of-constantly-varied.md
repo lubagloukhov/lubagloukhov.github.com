@@ -7,7 +7,7 @@ tags : [R, Python]
 {% include JB/setup %}
 
 
-Crossfit workouts (WODs) vary day to day and cover a broad spectrum of movements in order to help everyday athletes advance in every possible direction. In light of this, I examined how movements featured in WODs have evolved over time. Note, visualizations below capture number of WODs containing a given movement/named-WOD in a year. The last year captured is 2014 with 2 months left in the game.  WODs from 2001 onwards  reveal that:
+Crossfit workouts (WODs) vary day to day and cover a broad spectrum of movements in order to help everyday athletes advance in every possible direction. In light of this, I examined how movements featured in WODs have evolved over time -- [the code for the curious](https://github.com/lubagloukhov/crossfit). Visualizations below capture number of WODs containing a given movement/named-WOD in a year (i.e. in 2013, approx. 36/360+ or approx. 10% of all WODS contained deadlifts), showing just a select few movments (most common). The last year captured is 2014 with 2 months left in the game.  WODs from beginning2001-lateOct2014 onwards  reveal that:
 
 - The following is well behind us
 
