@@ -7,7 +7,7 @@ tags : [R, Python]
 {% include JB/setup %}
 
 
-Crossfit workouts (WODs) vary day to day and cover a broad spectrum of movements in order to help everyday athletes advance in every possible direction. In light of this, I examined how movements featured in WODs have evolved over time -- [the code for the curious](https://github.com/lubagloukhov/crossfit). Visualizations below capture number of WODs containing a given movement/named-WOD in a year (i.e. in 2013, approx. 36/360+ or approx. 10% of all WODS contained deadlifts), showing just a select few movments (most common). The last year captured is 2014 with 2 months left in the game.  WODs from beginning2001-lateOct2014 onwards  reveal that:
+Crossfit workouts (WODs) vary day to day and cover a broad spectrum of movements in order to help everyday athletes advance in every possible direction. In light of this, I examined how movements featured in WODs have evolved over time -- [the code for the curious](https://github.com/lubagloukhov/crossfit). Visualizations below capture number of WODs containing a given movement/named-WOD in a year (i.e. in 2013, approx. 36/360+ or approx. 10% of all WODS contained deadlifts), showing just a select few movements (most common). The last year captured is 2014 with 2 months left in the game.  WODs from beginning2001-lateOct2014 reveal that:
 
 - The following is well behind us
 
@@ -27,9 +27,7 @@ Crossfit workouts (WODs) vary day to day and cover a broad spectrum of movements
 ![RBSR Plot]({{lubagloukhov.github.com}}/assets/rbsrPlot.jpeg )
 
 	
-I scraped the WOD Archive (ex: [http://www.crossfit.com/mt-archive2/2014_10.html](http://www.crossfit.com/mt-archive2/2014_10.html)) using Python and visualized the text using R. In the process, I attempted to to do the full bake in Python using the ggplot module. Unfortunately, the module leaves much to be desired, especially for those used to the rich flexibility of R's ggplot2(). However, for the functionality that does exist the syntax should taste familiar.
-
-The DataFrame (df_lng) shows how many WODs ('value') contain a given movement ('variable') in a month (starting date indicated by 'date').
+I scraped the WOD Archive (ex: [http://www.crossfit.com/mt-archive2/2014_10.html](http://www.crossfit.com/mt-archive2/2014_10.html)) using Python and visualized the text using R. In the process, I attempted to to do the full bake in Python using the [ggplot module](http://blog.yhathq.com/posts/ggplot-for-python.html). Unfortunately, the module leaves much to be desired, especially for those used to the rich flexibility of R's ggplot2(). However, for the functionality that does exist the syntax should taste familiar. On the plus side, code in Python should look familiar to ggplot2 fans. Givem the DataFrame (df_lng) shows how many WODs ('value') contain a given movement ('variable') in a month (starting date indicated by 'date')...
 
 ~~~ python
 plot = ggplot(df_lng, aes(x='date', y='value'))+\
@@ -37,7 +35,7 @@ plot = ggplot(df_lng, aes(x='date', y='value'))+\
 	ylab('Number of Weekly Workouts w/ Snatch') + xlab('Date')
 ~~~
         
-To scrape & massage the data, I used Python's Feedparser, BeautifulSoup and Pandas. For example, given l= a url like [http://www.crossfit.com/mt-archive2/2014_10.html](http://www.crossfit.com/mt-archive2/2014_10.html) .
+To scrape & massage the data and get a DataFrame like df_lng, I used Python's Feedparser, BeautifulSoup and Pandas. For example, given l= a url like [http://www.crossfit.com/mt-archive2/2014_10.html](http://www.crossfit.com/mt-archive2/2014_10.html) .
 
 ~~~ python    
 CFfp = feedparser.parse(l)
@@ -54,7 +52,7 @@ for i in range(len(soup.findAll("div", {"class" : re.compile("date")}))-1):
 	i+=1
 ~~~
 
-For each date/WOD, whether or not a movement occurs was flagged. This was captures in a dictionary logging the date that each word (movement) appears for a given list of 113 movements (& named wods like Nasty Girls).
+For each date/WOD, whether or not a movement occurs was flagged. This was captured in a dictionary logging the date that each word (movement) appears for a given list of 113 movements (& named wods like Nasty Girls).
 
 ~~~ python    
 d2 = dict((datetime.strptime(k, '%B %d, %Y'), v) for k, v in wodDict.items())
@@ -81,4 +79,4 @@ From there, I handed it over to R's reshape, ggplot2, ggthemes and RColorBrewer 
 
 Next Steps:
 
-Current scrape captures just the first WOD listed of the day, to improve this I'd like to also capture alternate workouts as well as suggested weights, time, reps and distances. I'd like to examine any recurring movement sequences over multiple days that may occur when WODs build up to a complex movement. Successful scraping of WODs opens the door to scraping of user/athlete comments which can be used to analyze individual performance and sentiment.
+Current scrape captures just the first WOD listed of the day, to improve this I'd like to also capture alternate workouts and incorporate suggested weights, time, reps and distances into the analysis. I'd like to examine any recurring movement sequences over multiple days that may occur when WODs build up to a complex movement. Successful scraping of WODs opens the door to scraping of user/athlete comments which can be used to analyze individual performance and sentiment.
