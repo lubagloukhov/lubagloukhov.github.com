@@ -11,7 +11,7 @@ Recently, I joined forces with my classmates Cody and David to partake in the [K
 
 ![h2o]({{lubagloukhov.github.com}}/assets/h2ologo.jpg)
 
-Having been introduced to H2O by my colleague [Joe at Revolution Analytics](http://blog.revolutionanalytics.com/2014/04/a-dive-into-h2o.html) and through a couple of meetups at the H2O HQ (most notably, [Find Better Bordeaux with Deep Learning](http://www.meetup.com/Deep-Learning-Applications/events/219471222/)), I was really excited to use this as an opportunity to try it out for myself. 
+Having been introduced to H2O by my colleague [Joseph Rickert at Revolution Analytics](http://blog.revolutionanalytics.com/2014/04/a-dive-into-h2o.html) and through a couple of meetups at the H2O HQ (most notably, [Find Better Bordeaux with Deep Learning](http://www.meetup.com/Deep-Learning-Applications/events/219471222/)), I was really excited to use this as an opportunity to try it out for myself. 
 
 Two predictive models were trained using H2O running on EC2. Launching of H2O on EC2 requires a [download](http://h2o.ai/download/) of the bleeding edge version and be either modifying and running pre-built scripts from the command line or from the AWS console. As with most things, in practicality, getting up and running was not as straightforward as expected. But that's for another posting.
 
