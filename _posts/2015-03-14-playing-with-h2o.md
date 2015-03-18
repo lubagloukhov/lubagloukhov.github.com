@@ -9,6 +9,8 @@ tags : [R, h2o, aws]
 
 Recently, I joined forces with my classmates Cody and David to partake in the [Kaggle/Microsoft Malware Classification Challenge](https://www.kaggle.com/c/malware-classification). This post details the H2O portion of the efforts but you can read more about the full scope of the  work here: [msan-vs-malware.com](http://msan-vs-malware.com).
 
+![h2o]({{lubagloukhov.github.com}}/assets/h2ologo.jpg )
+
 Having been introduced to H2O by my colleague [Joe at Revolution Analytics](http://blog.revolutionanalytics.com/2014/04/a-dive-into-h2o.html) and through a couple of meetups at the H2O HQ (most notably, [Find Better Bordeaux with Deep Learning](http://www.meetup.com/Deep-Learning-Applications/events/219471222/)), I was really excited to use this as an opportunity to try it out for myself. 
 
 Two predictive models were trained using H2O running on EC2. Launching of H2O on EC2 requires a [download](http://h2o.ai/download/) of the bleeding edge version and be either modifying and running pre-built scripts from the command line or from the AWS console. As with most things, in practicality, getting up and running was not as straightforward as expected. But that's for another posting.
@@ -24,7 +26,7 @@ library(h2o)
 ec2H2O <- h2o.init(ip = ’00.00.00.000’, port =54321) 
 pathToData = "https://s3-us-west-2.amazonaws.com/location/filname.txt”
 filename.hex = h2o.importFile(ec2H2O, path = pathToData,
-							  key = "filename.hex")
+key = "filename.hex")
 
 classCounts <- as.data.frame(h2o.table(filename.hex["Class"]))
 names(classCounts) <- c("class", "count")
@@ -126,4 +128,4 @@ In summary, H2O’s integration with R made exploratory analysis intuitive and r
 
 Next Steps:
 
-My initial inclination to use H2O was driven by the anticipated need to deal with much larger (specifically, wider) datasets. However, this data has posed a challenge for H2O's  parsing. This is one of the hurdles I'd like to address in future work. Further, there's still a lot of work that can be done with the existing datasets. For one, I'd like to run through some paramater tuning of the existing random forest and deep learning models. I'd also like to see how feature normalization affects the performance of the deep learning model. Finally, I'd like to address the issu of unbalance classes by either bootstrapping for equally represented classes before model fitting or by fitting a boosted algorithm such as h2o's GBM.
+My initial inclination to use H2O was driven by the anticipated need to deal with much larger (specifically, wider) datasets. However, this data has posed a challenge for H2O’s parsing. This is one of the hurdles I’d like to address in future work. Further, there’s still a lot of work that can be done with the existing datasets. For one, I’d like to run through some paramater tuning of the existing random forest and deep learning models. I’d also like to see how feature normalization affects the performance of the deep learning model. Finally, I’d like to address the issue of unbalance classes by either bootstrapping for equally represented classes before model fitting or by fitting a boosted algorithm such as H2O’s GBM.
