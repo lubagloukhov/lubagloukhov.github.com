@@ -9,7 +9,7 @@ tags : [R, h2o, aws]
 
 Recently, I joined forces with my classmates Cody and David to partake in the [Kaggle/Microsoft Malware Classification Challenge](https://www.kaggle.com/c/malware-classification). This post details the H2O portion of the efforts but you can read more about the full scope of the  work here: [msan-vs-malware.com](http://msan-vs-malware.com).
 
-![h2o]({{lubagloukhov.github.com}}/assets/h2ologo.jpg )
+![h2o]({{lubagloukhov.github.com}}/assets/h2ologo.jpg =400x)
 
 Having been introduced to H2O by my colleague [Joe at Revolution Analytics](http://blog.revolutionanalytics.com/2014/04/a-dive-into-h2o.html) and through a couple of meetups at the H2O HQ (most notably, [Find Better Bordeaux with Deep Learning](http://www.meetup.com/Deep-Learning-Applications/events/219471222/)), I was really excited to use this as an opportunity to try it out for myself. 
 
